@@ -1,0 +1,150 @@
+.contenido--ancho {
+  max-width: 1180px;
+}
+
+.enlace-volver {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.enlace-volver:focus-visible {
+  outline: 3px solid var(--laton);
+  outline-offset: 2px;
+}
+
+.clientes {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.panel {
+  padding: 1.5rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+}
+
+.panel__titulo {
+  margin: 0 0 1.25rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.campo select {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+}
+
+.campo select:focus-visible {
+  outline: 3px solid var(--laton);
+  outline-offset: 2px;
+}
+
+.campo input[readonly] {
+  color: var(--texto-suave);
+  background: #eef2f3;
+}
+
+.acciones {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.acciones .boton {
+  width: auto;
+  flex: 1;
+}
+
+.boton--secundario {
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--tinta);
+}
+
+.boton--secundario:hover {
+  background: #e8eff0;
+}
+
+/* Tabla */
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.tabla th,
+.tabla td {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--borde);
+  vertical-align: middle;
+}
+
+.tabla th {
+  font-weight: 600;
+  white-space: nowrap;
+  background: #eef2f3;
+}
+
+.tabla .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tabla__editar {
+  padding: 0.25rem 0.625rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--tinta);
+  background: none;
+  border: 1px solid var(--tinta);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tabla__editar:hover {
+  background: #e8eff0;
+}
+
+.tabla__editar:focus-visible {
+  outline: 3px solid var(--laton);
+  outline-offset: 2px;
+}
+
+.estado--inactivo {
+  color: var(--texto-suave);
+}
+
+.vacio {
+  margin: 1.25rem 0 0;
+  color: var(--texto-suave);
+}
+
+.solo-lectura {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .clientes {
+    grid-template-columns: 1fr;
+  }
+}

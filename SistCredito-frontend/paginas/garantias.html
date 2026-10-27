@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Garantías | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/clientes.css">
+  <link rel="stylesheet" href="../css/solicitudes.css">
+  <link rel="stylesheet" href="../css/pantallas.css">
+</head>
+<body>
+  <header class="barra">
+    <p class="barra__logo">SistCrédito</p>
+    <div class="barra__usuario">
+      <p class="barra__datos">
+        <span id="nombre-usuario" class="barra__nombre"></span>
+        <span id="rol-usuario" class="barra__rol"></span>
+      </p>
+      <button type="button" id="cerrar-sesion" class="barra__salir">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido contenido--ancho">
+    <a class="enlace-volver" href="../menu.html">Volver al menú</a>
+    <h1 class="contenido__titulo">Garantías</h1>
+    <p class="contenido__texto">Registra el respaldo de una solicitud o de un crédito.</p>
+
+    <div class="clientes">
+      <section class="panel" aria-labelledby="titulo-form">
+        <h2 id="titulo-form" class="panel__titulo">Registrar garantía</h2>
+
+        <p id="sin-asociados" class="aviso" hidden>
+          No hay solicitudes ni créditos para asociar. Primero <a href="solicitudes.html">registra una solicitud</a>.
+        </p>
+
+        <form id="form-garantia" novalidate>
+          <div class="campo">
+            <label for="asociado">Asociar a</label>
+            <select id="asociado"></select>
+          </div>
+          <div class="campo">
+            <label for="tipo">Tipo de garantía</label>
+            <select id="tipo">
+              <option value="">Selecciona un tipo</option>
+              <option value="PRENDARIA">PRENDARIA</option>
+              <option value="HIPOTECARIA">HIPOTECARIA</option>
+              <option value="PERSONAL">PERSONAL</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="descripcion">Descripción</label>
+            <input id="descripcion" type="text" placeholder="Ej. Vehículo Toyota 2018" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="valor">Valor (Bs)</label>
+            <input id="valor" type="number" min="0" step="0.01" inputmode="decimal">
+          </div>
+
+          <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+          <button type="submit" class="boton">Registrar garantía</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista" class="panel__titulo">Garantías registradas</h2>
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <caption class="solo-lectura">Lista de garantías</caption>
+            <thead>
+              <tr>
+                <th scope="col">N.º</th>
+                <th scope="col">Asociada a</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Descripción</th>
+                <th scope="col" class="num">Valor (Bs)</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-garantias"></tbody>
+          </table>
+        </div>
+        <p id="vacio" class="vacio" hidden></p>
+      </section>
+    </div>
+
+  </main>
+
+  <script src="../js/sesion.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/garantias.js"></script>
+</body>
+</html>

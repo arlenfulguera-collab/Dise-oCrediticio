@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrar pagos | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/clientes.css">
+  <link rel="stylesheet" href="../css/solicitudes.css">
+  <link rel="stylesheet" href="../css/pantallas.css">
+</head>
+<body>
+  <header class="barra">
+    <p class="barra__logo">SistCrédito</p>
+    <div class="barra__usuario">
+      <p class="barra__datos">
+        <span id="nombre-usuario" class="barra__nombre"></span>
+        <span id="rol-usuario" class="barra__rol"></span>
+      </p>
+      <button type="button" id="cerrar-sesion" class="barra__salir">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido contenido--ancho">
+    <a class="enlace-volver" href="../menu.html">Volver al menú</a>
+    <h1 class="contenido__titulo">Registrar pagos</h1>
+    <p class="contenido__texto">Busca el crédito, cobra la cuota y entrega el comprobante.</p>
+
+    <div class="solicitudes">
+      <section class="panel no-imprimir" aria-labelledby="titulo-buscar">
+        <h2 id="titulo-buscar" class="panel__titulo">Buscar crédito</h2>
+        <form id="form-buscar" novalidate>
+          <div class="campo">
+            <label for="buscar-credito">Número de crédito, cédula o nombre del cliente</label>
+            <input id="buscar-credito" type="search" placeholder="Ej. CR-2026-0001" autocomplete="off">
+          </div>
+          <p id="mensaje-busqueda" class="mensaje" role="status" aria-live="polite"></p>
+          <button type="submit" class="boton boton--auto">Buscar</button>
+        </form>
+
+        <div class="tabla-contenedor" id="panel-resultados" hidden>
+          <table class="tabla">
+            <caption class="solo-lectura">Créditos encontrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Crédito</th>
+                <th scope="col">Cliente</th>
+                <th scope="col" class="num">Saldo capital (Bs)</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-resultados"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel no-imprimir" id="panel-credito" aria-labelledby="titulo-credito" hidden>
+        <h2 id="titulo-credito" class="panel__titulo"></h2>
+        <dl class="detalle" id="detalle-credito"></dl>
+
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <caption class="solo-lectura">Cuotas del crédito</caption>
+            <thead>
+              <tr>
+                <th scope="col">Cuota</th>
+                <th scope="col">Vencimiento</th>
+                <th scope="col" class="num">Monto (Bs)</th>
+                <th scope="col" class="num">Saldo (Bs)</th>
+                <th scope="col" class="num">Días de mora</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-cuotas"></tbody>
+          </table>
+        </div>
+
+        <form id="form-pago" novalidate>
+          <h3 class="subtitulo">Registrar pago</h3>
+          <div class="formulario-grid">
+            <div class="campo">
+              <label for="monto">Monto recibido (Bs)</label>
+              <input id="monto" type="number" min="0" step="0.01" inputmode="decimal">
+            </div>
+            <div class="campo">
+              <label for="forma-pago">Forma de pago</label>
+              <select id="forma-pago">
+                <option value="EFECTIVO">EFECTIVO</option>
+                <option value="TRANSFERENCIA">TRANSFERENCIA</option>
+              </select>
+            </div>
+          </div>
+          <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+          <button type="submit" class="boton boton--auto">Registrar pago</button>
+        </form>
+      </section>
+
+      <section class="panel comprobante" id="panel-comprobante" aria-labelledby="titulo-comprobante" hidden>
+        <h2 id="titulo-comprobante" class="panel__titulo">Comprobante de pago</h2>
+        <dl class="detalle" id="detalle-comprobante"></dl>
+        <button type="button" id="boton-imprimir" class="boton boton--secundario boton--auto">Imprimir comprobante</button>
+      </section>
+    </div>
+
+  </main>
+
+  <script src="../js/sesion.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/pagos.js"></script>
+</body>
+</html>

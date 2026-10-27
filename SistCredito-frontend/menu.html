@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú principal | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+  <header class="barra">
+    <p class="barra__logo">SistCrédito</p>
+    <div class="barra__usuario">
+      <p class="barra__datos">
+        <span id="nombre-usuario" class="barra__nombre"></span>
+        <span id="rol-usuario" class="barra__rol"></span>
+      </p>
+      <button type="button" id="cerrar-sesion" class="barra__salir">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido">
+    <h1 id="saludo" class="contenido__titulo"></h1>
+    <p class="contenido__texto">Estas son las opciones disponibles para tu rol.</p>
+    <div id="opciones" class="opciones"></div>
+  </main>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>

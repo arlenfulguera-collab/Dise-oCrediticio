@@ -1,0 +1,87 @@
+/* Esta pantalla reutiliza estilos de clientes.css (panel, tabla, campos) */
+
+.solicitudes {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 1.25rem;
+}
+
+.documentos {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+}
+
+.documentos legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+}
+
+.documentos__fila {
+  display: grid;
+  grid-template-columns: 1fr minmax(160px, 200px);
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.375rem 0;
+}
+
+.documentos__fila label {
+  font-weight: 400;
+}
+
+.documentos__fila select {
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+}
+
+.documentos__fila select:focus-visible {
+  outline: 3px solid var(--laton);
+  outline-offset: 2px;
+}
+
+.documentos__fila select.invalido,
+.campo select.invalido {
+  border-color: var(--error);
+}
+
+.aviso {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  background: #f6f0df;
+  border-left: 4px solid var(--laton);
+  border-radius: 4px;
+}
+
+.aviso a {
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.boton--auto {
+  width: auto;
+  padding-inline: 2rem;
+}
+
+.filtros {
+  display: grid;
+  grid-template-columns: 1fr minmax(160px, 220px);
+  gap: 0 1.25rem;
+}
+
+@media (max-width: 560px) {
+  .documentos__fila,
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+}

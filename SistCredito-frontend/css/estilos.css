@@ -1,0 +1,205 @@
+:root {
+  --tinta: #0e3b43;
+  --tinta-oscura: #0a2c32;
+  --laton: #c49a3c;
+  --fondo: #f2f5f6;
+  --superficie: #ffffff;
+  --texto: #1b2a2e;
+  --texto-suave: #5a6a6e;
+  --borde: #c9d3d6;
+  --error: #b3261e;
+  --exito: #1e6b3a;
+
+  --fuente-titulo: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+/* Estructura: marca a la izquierda, formulario a la derecha */
+.login {
+  display: grid;
+  grid-template-columns: minmax(320px, 5fr) 6fr;
+  min-height: 100vh;
+}
+
+.login__marca {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2.5rem clamp(1.5rem, 4vw, 3.5rem);
+  color: #eaf1f2;
+  background: var(--tinta);
+  border-right: 6px solid var(--laton);
+}
+
+.login__logo {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.login__lema {
+  max-width: 14ch;
+  margin: 0 0 1rem;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.login__texto {
+  max-width: 38ch;
+  margin: 0;
+  color: #b9cdd0;
+}
+
+.login__panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+/* Formulario */
+.formulario {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+}
+
+.formulario__titulo {
+  margin: 0 0 1.5rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.campo {
+  margin-bottom: 1.25rem;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+}
+
+.campo input:focus-visible,
+.campo__ver:focus-visible,
+.boton:focus-visible {
+  outline: 3px solid var(--laton);
+  outline-offset: 2px;
+}
+
+.campo input.invalido {
+  border-color: var(--error);
+}
+
+.campo__clave {
+  position: relative;
+}
+
+.campo__clave input {
+  padding-right: 5.5rem;
+}
+
+.campo__ver {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  padding: 0.25rem 0.5rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--tinta);
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.campo__ver:hover {
+  text-decoration: underline;
+}
+
+/* Mensajes de error y éxito */
+.mensaje {
+  min-height: 1.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.9375rem;
+  color: var(--error);
+}
+
+.mensaje.ok {
+  color: var(--exito);
+}
+
+.boton {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--tinta);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: var(--tinta-oscura);
+}
+
+/* Pantallas pequeñas: se apila y la marca se reduce */
+@media (max-width: 760px) {
+  .login {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .login__marca {
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-right: 0;
+    border-bottom: 6px solid var(--laton);
+  }
+
+  .login__lema {
+    max-width: none;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
+
+  .login__texto {
+    display: none;
+  }
+}

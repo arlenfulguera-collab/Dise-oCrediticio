@@ -1,0 +1,143 @@
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem clamp(1rem, 4vw, 2.5rem);
+  color: #eaf1f2;
+  background: var(--tinta);
+  border-bottom: 4px solid var(--laton);
+}
+
+.barra__logo {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.barra__usuario {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.barra__datos {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  text-align: right;
+  line-height: 1.3;
+}
+
+.barra__nombre {
+  font-weight: 600;
+}
+
+.barra__rol {
+  font-size: 0.875rem;
+  color: #b9cdd0;
+}
+
+.barra__salir {
+  padding: 0.5rem 0.875rem;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: #eaf1f2;
+  background: transparent;
+  border: 1px solid #6f9298;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.barra__salir:hover {
+  background: var(--tinta-oscura);
+}
+
+.barra__salir:focus-visible,
+.opcion:focus-visible {
+  outline: 3px solid var(--laton);
+  outline-offset: 2px;
+}
+
+.contenido {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.contenido__titulo {
+  margin: 0 0 0.25rem;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.contenido__texto {
+  margin: 0 0 2rem;
+  color: var(--texto-suave);
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.opcion {
+  display: block;
+  padding: 1.25rem;
+  color: inherit;
+  text-decoration: none;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--tinta);
+  border-radius: 4px;
+}
+
+a.opcion:hover {
+  background: #e8eff0;
+}
+
+.opcion__titulo {
+  margin: 0 0 0.25rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.opcion__texto {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.9375rem;
+}
+
+/* Opciones cuya pantalla todavía no existe */
+.opcion--pendiente {
+  border-left-color: var(--borde);
+  border-style: dashed;
+  border-left-style: solid;
+}
+
+.opcion__estado {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 560px) {
+  .barra {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .barra__usuario {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .barra__datos {
+    text-align: left;
+  }
+}

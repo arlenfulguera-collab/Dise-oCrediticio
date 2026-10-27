@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="login">
+    <section class="login__marca">
+      <p class="login__logo">SistCrédito</p>
+      <div>
+        <h1 class="login__lema">Cada crédito, de la solicitud a la cancelación.</h1>
+        <p class="login__texto">Registra clientes, evalúa solicitudes y controla cuotas y pagos en un solo lugar.</p>
+      </div>
+    </section>
+
+    <section class="login__panel">
+      <form id="form-login" class="formulario" novalidate>
+        <h2 class="formulario__titulo">Ingresar al sistema</h2>
+
+        <div class="campo">
+          <label for="usuario">Usuario</label>
+          <input id="usuario" name="usuario" type="text" autocomplete="username" required>
+        </div>
+
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <div class="campo__clave">
+            <input id="clave" name="clave" type="password" autocomplete="current-password" required>
+            <button type="button" id="ver-clave" class="campo__ver" aria-pressed="false">Mostrar</button>
+          </div>
+        </div>
+
+        <p id="mensaje" class="mensaje" role="alert" aria-live="polite"></p>
+
+        <button type="submit" class="boton">Ingresar</button>
+      </form>
+    </section>
+  </main>
+
+  
+  <script src="js/datos.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

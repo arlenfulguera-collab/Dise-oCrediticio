@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usuarios | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/clientes.css">
+  <link rel="stylesheet" href="../css/solicitudes.css">
+  <link rel="stylesheet" href="../css/pantallas.css">
+</head>
+<body>
+  <header class="barra">
+    <p class="barra__logo">SistCrédito</p>
+    <div class="barra__usuario">
+      <p class="barra__datos">
+        <span id="nombre-usuario" class="barra__nombre"></span>
+        <span id="rol-usuario" class="barra__rol"></span>
+      </p>
+      <button type="button" id="cerrar-sesion" class="barra__salir">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido contenido--ancho">
+    <a class="enlace-volver" href="../menu.html">Volver al menú</a>
+    <h1 class="contenido__titulo">Usuarios</h1>
+    <p class="contenido__texto">Crea usuarios, asigna roles y activa o desactiva accesos.</p>
+
+    <div class="clientes">
+      <section class="panel" aria-labelledby="titulo-form">
+        <h2 id="titulo-form" class="panel__titulo">Registrar usuario</h2>
+
+        <form id="form-usuario" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" type="text" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico (opcional)</label>
+            <input id="correo" type="email" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="login">Usuario (para ingresar)</label>
+            <input id="login" type="text" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="rol">Rol</label>
+            <select id="rol"></select>
+          </div>
+          <div class="campo">
+            <label for="clave" id="etiqueta-clave">Contraseña temporal</label>
+            <input id="clave" type="text" autocomplete="off">
+          </div>
+          <div class="campo" id="campo-estado" hidden>
+            <label for="estado">Acceso</label>
+            <select id="estado">
+              <option value="ACTIVO">ACTIVO</option>
+              <option value="INACTIVO">INACTIVO</option>
+            </select>
+          </div>
+
+          <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+          <div class="acciones">
+            <button type="submit" id="boton-guardar" class="boton">Registrar usuario</button>
+            <button type="button" id="boton-cancelar" class="boton boton--secundario" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista" class="panel__titulo">Usuarios del sistema</h2>
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <caption class="solo-lectura">Lista de usuarios</caption>
+            <thead>
+              <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Acceso</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-usuarios"></tbody>
+          </table>
+        </div>
+        <p id="vacio" class="vacio" hidden></p>
+      </section>
+    </div>
+
+  </main>
+
+  <script src="../js/sesion.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/usuarios.js"></script>
+</body>
+</html>

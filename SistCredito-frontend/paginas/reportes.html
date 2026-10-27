@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reportes | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/clientes.css">
+  <link rel="stylesheet" href="../css/solicitudes.css">
+  <link rel="stylesheet" href="../css/pantallas.css">
+</head>
+<body>
+  <header class="barra">
+    <p class="barra__logo">SistCrédito</p>
+    <div class="barra__usuario">
+      <p class="barra__datos">
+        <span id="nombre-usuario" class="barra__nombre"></span>
+        <span id="rol-usuario" class="barra__rol"></span>
+      </p>
+      <button type="button" id="cerrar-sesion" class="barra__salir">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido contenido--ancho">
+    <a class="enlace-volver" href="../menu.html">Volver al menú</a>
+    <h1 class="contenido__titulo">Reportes</h1>
+    <p class="contenido__texto">Cartera, pagos, mora y operaciones registradas.</p>
+
+    <section class="panel" aria-labelledby="titulo-fecha" style="margin-bottom:1.5rem">
+      <h2 id="titulo-fecha" class="panel__titulo">Fecha del sistema (solo para pruebas)</h2>
+      <p class="ayuda">Cambia la fecha para ver cómo se marcan las cuotas vencidas y los créditos en mora. En el sistema real no existe este control.</p>
+      <div class="formulario-grid">
+        <div class="campo">
+          <label for="fecha-prueba">Fecha de prueba</label>
+          <input id="fecha-prueba" type="date">
+        </div>
+      </div>
+      <p id="texto-fecha" class="ayuda"></p>
+      <div class="grupo-botones">
+        <button type="button" id="boton-aplicar-fecha" class="boton boton--secundario boton--auto">Aplicar fecha</button>
+        <button type="button" id="boton-restablecer-fecha" class="boton boton--secundario boton--auto">Volver a la fecha real</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="titulo-reporte">
+      <h2 id="titulo-reporte" class="panel__titulo">Reporte</h2>
+      <div class="campo" style="max-width:340px">
+        <label for="tipo-reporte">Tipo de reporte</label>
+        <select id="tipo-reporte">
+          <option value="CARTERA">Créditos y cartera</option>
+          <option value="PAGOS">Pagos recibidos</option>
+          <option value="MORA">Cuotas en mora</option>
+          <option value="AUDITORIA">Auditoría de operaciones</option>
+        </select>
+      </div>
+
+      <div class="resumen" id="resumen"></div>
+
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <caption class="solo-lectura">Datos del reporte</caption>
+          <thead><tr id="cabecera-tabla"></tr></thead>
+          <tbody id="cuerpo-tabla"></tbody>
+        </table>
+      </div>
+      <p id="vacio" class="vacio" hidden></p>
+    </section>
+
+  </main>
+
+  <script src="../js/sesion.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/reportes.js"></script>
+</body>
+</html>

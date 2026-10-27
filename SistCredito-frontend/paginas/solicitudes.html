@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitudes | SistCrédito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/clientes.css">
+  <link rel="stylesheet" href="../css/solicitudes.css">
+</head>
+<body>
+  <header class="barra">
+    <p class="barra__logo">SistCrédito</p>
+    <div class="barra__usuario">
+      <p class="barra__datos">
+        <span id="nombre-usuario" class="barra__nombre"></span>
+        <span id="rol-usuario" class="barra__rol"></span>
+      </p>
+      <button type="button" id="cerrar-sesion" class="barra__salir">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenido contenido--ancho">
+    <a class="enlace-volver" href="../menu.html">Volver al menú</a>
+    <h1 class="contenido__titulo">Solicitudes de crédito</h1>
+    <p class="contenido__texto">Registra la solicitud de un cliente y marca los documentos que entregó.</p>
+
+    <div class="solicitudes">
+      <section class="panel" aria-labelledby="titulo-form">
+        <h2 id="titulo-form" class="panel__titulo">Registrar solicitud</h2>
+
+        <p id="sin-clientes" class="aviso" hidden>
+          No hay clientes activos. Primero <a href="clientes.html">registra un cliente</a>.
+        </p>
+
+        <form id="form-solicitud" novalidate>
+          <div class="formulario-grid">
+            <div class="campo">
+              <label for="cliente">Cliente</label>
+              <select id="cliente" name="cliente"></select>
+            </div>
+
+            <div class="campo">
+              <label for="monto">Monto solicitado (Bs)</label>
+              <input id="monto" name="monto" type="number" min="0" step="0.01" inputmode="decimal">
+            </div>
+
+            <div class="campo">
+              <label for="plazo">Plazo (meses)</label>
+              <input id="plazo" name="plazo" type="number" min="1" step="1" inputmode="numeric">
+            </div>
+
+            <div class="campo">
+              <label for="destino">Destino del crédito</label>
+              <input id="destino" name="destino" type="text" placeholder="Ej. Capital de trabajo" autocomplete="off">
+            </div>
+          </div>
+
+          <fieldset class="documentos">
+            <legend>Documentos del cliente</legend>
+            <div id="lista-documentos"></div>
+          </fieldset>
+
+          <div class="campo">
+            <label for="observacion">Observación (opcional)</label>
+            <input id="observacion" name="observacion" type="text" autocomplete="off">
+          </div>
+
+          <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+          <button type="submit" class="boton boton--auto">Registrar solicitud</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="titulo-lista">
+        <h2 id="titulo-lista" class="panel__titulo">Solicitudes registradas</h2>
+
+        <div class="filtros">
+          <div class="campo">
+            <label for="buscar">Buscar por cédula o nombre del cliente</label>
+            <input id="buscar" type="search" autocomplete="off">
+          </div>
+          <div class="campo">
+            <label for="filtro-estado">Estado</label>
+            <select id="filtro-estado">
+              <option value="">Todos</option>
+              <option value="REGISTRADA">REGISTRADA</option>
+              <option value="EN_EVALUACION">EN_EVALUACION</option>
+              <option value="APROBADA">APROBADA</option>
+              <option value="RECHAZADA">RECHAZADA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <caption class="solo-lectura">Lista de solicitudes de crédito</caption>
+            <thead>
+              <tr>
+                <th scope="col">N.º</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cliente</th>
+                <th scope="col" class="num">Monto (Bs)</th>
+                <th scope="col" class="num">Plazo</th>
+                <th scope="col">Destino</th>
+                <th scope="col">Documentos</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-solicitudes"></tbody>
+          </table>
+        </div>
+        <p id="vacio" class="vacio" hidden></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="../js/sesion.js"></script>
+  <script src="../js/datos.js"></script> <!-- IMPORTANTE -->
+  <script src="../js/solicitudes.js"></script>
+</body>
+</html>
